@@ -8,8 +8,9 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "env": {
-                "AZURE_SPEECH_KEY": "My_Azure_Speech_Key",
-                "AZURE_SPEECH_REGION": "My_Region"
+                "AZURE_SPEECH_KEY": "AZURE_SPEECH_KEY",
+                "AZURE_SPEECH_REGION": "AZURE_SPEECH_REGION"
+                "OPENAI_API_KEY": "OPENAI_API_KEY"
             }
         }
     ]
