@@ -11,20 +11,21 @@ import io
 from flask import Flask, request, jsonify
 from flask_socketio import SocketIO, emit
 
-# Load environment variables from .env file
+# Force load environment variables
 load_dotenv()
 
-# Retrieve API keys securely
+# Retrieve API keys
 AZURE_SPEECH_KEY = os.getenv("AZURE_SPEECH_KEY")
 AZURE_SPEECH_REGION = os.getenv("AZURE_SPEECH_REGION")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
+# Debugging logs to confirm keys are loaded
 print("Azure Speech Key Loaded:", AZURE_SPEECH_KEY is not None)
 print("OpenAI API Key Loaded:", OPENAI_API_KEY is not None)
 
-# Azure Speech Configuration
-AZURE_SPEECH_KEY = "My_Azure_Speech_Key"  # Replace with your key
-AZURE_SPEECH_REGION = "My_Region"
+if not AZURE_SPEECH_KEY or not OPENAI_API_KEY:
+    raise Exception("ERROR: Missing API keys. Check Render Environment Variables.")
+
 
 speech_config = speechsdk.SpeechConfig(subscription=AZURE_SPEECH_KEY, region=AZURE_SPEECH_REGION)
 audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
