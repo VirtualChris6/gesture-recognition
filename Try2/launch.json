@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Debug Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "env": {
+                "AZURE_SPEECH_KEY": "My_Azure_Speech_Key",
+                "AZURE_SPEECH_REGION": "My_Region"
+            }
+        }
+    ]
+}
