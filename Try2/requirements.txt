@@ -1,8 +1,0 @@
-flask
-flask-socketio
-gunicorn
-opencv-python
-mediapipe
-numpy
-azure-cognitiveservices-speech
-python-dotenv
