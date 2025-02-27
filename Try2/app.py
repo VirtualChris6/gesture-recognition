@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+import os
 import cv2
 import mediapipe as mp
 import math
@@ -8,6 +10,17 @@ import time
 import io
 from flask import Flask, request, jsonify
 from flask_socketio import SocketIO, emit
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Retrieve API keys securely
+AZURE_SPEECH_KEY = os.getenv("AZURE_SPEECH_KEY")
+AZURE_SPEECH_REGION = os.getenv("AZURE_SPEECH_REGION")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+print("Azure Speech Key Loaded:", AZURE_SPEECH_KEY is not None)
+print("OpenAI API Key Loaded:", OPENAI_API_KEY is not None)
 
 # Azure Speech Configuration
 AZURE_SPEECH_KEY = "My_Azure_Speech_Key"  # Replace with your key
